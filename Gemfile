@@ -11,6 +11,9 @@ gem 'turbolinks'
 # Devise for handling user authentication
 gem 'devise', '~> 3.5', '>= 3.5.2'
 
+# Handle image uploads and processing
+gem 'paperclip', '~> 4.3'
+
 
 # *** CSS and JS ***
 # Use SCSS for stylesheets
