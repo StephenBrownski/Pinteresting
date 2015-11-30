@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Description</th>
+      <th>User</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -14,6 +15,9 @@
     <% @pins.each do |pin| %>
       <tr>
         <td><%= pin.description %></td>
+        <td>
+          <%= pin.user.try(:email) %>
+        </td>
         <td>
           <%= link_to 'Show', pin %>
           |
