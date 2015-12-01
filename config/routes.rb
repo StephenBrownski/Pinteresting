@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :pins
+  resources :pins do
+    collection do
+      get 'manage'
+    end
+  end
   devise_for :users
   root 'pages#home'
 
