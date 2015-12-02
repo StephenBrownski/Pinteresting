@@ -7,12 +7,18 @@
 }
 
 #pins {
-  margin: 0 auto;
+  width: 100%;
+  margin: 0 -5px;
 }
 
 .box {
-  margin: 5px;
-  width: 214px;
+  padding: 5px;
+  margin: 0;
+  width: 20%;
+
+  .panel {
+    margin: 0;
+  }
 }
 
 .box img {

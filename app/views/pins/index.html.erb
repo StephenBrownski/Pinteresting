@@ -1,16 +1,30 @@
 <div id="pins" class="transitions-enabled">
-  <% @pins.each do |pin| %>
-    <div class="box panel panel-default">
-      <%= image_tag pin.image.url(:medium) %>
-      <div class="panel-body">
-        <%= pin.description %>
-        <%= pin.user.email if pin.user %>
-        <%= link_to 'Show', pin_path(pin) %>
-        <% if pin.user == current_user %>
-          <%= link_to 'Edit', edit_pin_path(pin) %>
-          <%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
+  <div class="pins-row">
+    <% @pins.each do |pin| %>
+      <div class="box">
+        <div class="panel panel-default">
+          <%= link_to image_tag(pin.image.url(:medium)), pin %>
+          <div class="panel-body">
+            <%= pin.description %>
+            <br>
+            <strong><%= pin.user.email if pin.user %></strong>
+          </div>
+          <% if pin.user == current_user %>
+            <div class="panel-footer">
+              <div class="btn-group btn-group-justified">
+                <%= link_to edit_pin_path(pin), class: 'btn btn-default' do %>
+                  <span class="glyphicon glyphicon-edit"></span>
+                  Edit
+                <% end %>
+                <%= link_to pin, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' do %>
+                  <span class="glyphicon glyphicon-trash"></span>
+                  Destroy
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
