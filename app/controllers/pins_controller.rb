@@ -8,7 +8,7 @@ class PinsController < ApplicationController
   end
 
   def manage
-    @pins = current_user.pins
+    @pins = current_user.pins.paginate(page: params[:page], per_page: 10)
   end
 
   def show
