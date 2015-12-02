@@ -12,11 +12,15 @@
 }
 
 .box {
-  padding: 5px !important;
+  padding: 0 !important;
   margin: 0;
 
   .panel {
     margin: 0;
+  }
+
+  .box-inner {
+    padding: 5px !important;
   }
 }
 

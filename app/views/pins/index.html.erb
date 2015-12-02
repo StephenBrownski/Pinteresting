@@ -4,27 +4,29 @@
   <div class="pins-row">
     <% @pins.each do |pin| %>
       <div class="box col-md-3 col-sm-4 col-xs-6">
-        <div class="panel panel-default">
-          <%= link_to image_tag(pin.image.url(:medium)), pin %>
-          <div class="panel-body">
-            <%= pin.description %>
-            <br>
-            <strong><%= pin.user.name if pin.user %></strong>
-          </div>
-          <% if pin.user == current_user %>
-            <div class="panel-footer">
-              <div class="btn-group btn-group-justified">
-                <%= link_to edit_pin_path(pin), class: 'btn btn-default' do %>
-                  <span class="glyphicon glyphicon-edit"></span>
-                  Edit
-                <% end %>
-                <%= link_to pin, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' do %>
-                  <span class="glyphicon glyphicon-trash"></span>
-                  Destroy
-                <% end %>
-              </div>
+        <div class="box-inner">
+          <div class="panel panel-default">
+            <%= link_to image_tag(pin.image.url(:medium)), pin %>
+            <div class="panel-body">
+              <%= pin.description %>
+              <br>
+              <strong><%= pin.user.name if pin.user %></strong>
             </div>
-          <% end %>
+            <% if pin.user == current_user %>
+              <div class="panel-footer">
+                <div class="btn-group btn-group-justified">
+                  <%= link_to edit_pin_path(pin), class: 'btn btn-default' do %>
+                    <span class="glyphicon glyphicon-edit"></span>
+                    Edit
+                  <% end %>
+                  <%= link_to pin, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' do %>
+                    <span class="glyphicon glyphicon-trash"></span>
+                    Destroy
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     <% end %>
