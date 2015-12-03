@@ -12,8 +12,10 @@
           <% if board.pins.first.present? %>
             <%= link_to image_tag(board.pins.first.image.url(:medium)), board %>
           <% else %>
-            <div class="well">
-              <i class="text-muted">This board is empty</i>
+            <div class="panel-body text-center text-danger">
+              <span class="glyphicon glyphicon-exclamation-sign"></span>
+              <br>
+              <i>This board is empty</i>
             </div>
           <% end %>
             <div class="panel-body">
