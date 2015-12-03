@@ -10,7 +10,11 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require 'masonry/transitions'
- *= require_tree .
- *= require_self
  */
+@import 'masonry/transitions';
+@import 'vendor/bootstrap_and_customization';
+@import 'base/constants';
+@import 'base/mixins';
+@import 'modules/pages';
+@import 'modules/pins';
+
