@@ -22,6 +22,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :board %>
+    <%= f.collection_select :board_id, @boards, :id, :name, {prompt: "-- Select Board --"}, {class: 'form-control'} %>
+  </div>
+
+  <div class="form-group">
     <%= f.submit class: 'btn btn-primary'%>
   </div>
 <% end %>
