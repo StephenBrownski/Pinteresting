@@ -16,9 +16,11 @@ class PinsController < ApplicationController
 
   def new
     @pin = current_user.pins.build
+    @boards = current_user.boards.all
   end
 
   def edit
+    @boards = current_user.boards.all
   end
 
   def create
@@ -56,6 +58,6 @@ class PinsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pin_params
-      params.require(:pin).permit(:description, :image)
+      params.require(:pin).permit(:description, :image, :board_id)
     end
 end
