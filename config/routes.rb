@@ -4,6 +4,9 @@ Rails.application.routes.draw do
       get 'manage'
     end
   end
+
+  resources :boards
+
   devise_for :users
 
   root 'pins#index'
