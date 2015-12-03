@@ -7,8 +7,7 @@
 }
 
 #pins {
-  width: 100%;
-  margin: 0 -5px;
+  margin: 0;
 }
 
 .box {
@@ -22,6 +21,10 @@
   .box-inner {
     padding: 5px !important;
   }
+
+  &.placeholder {
+    height: 1px;
+  }
 }
 
 .box img {
@@ -31,5 +34,11 @@
 .panel-footer {
   .pagination {
     margin: 0;
+  }
+}
+
+.col-lg-20 {
+  @include respond-to(lg) {
+    width: 20%;
   }
 }
