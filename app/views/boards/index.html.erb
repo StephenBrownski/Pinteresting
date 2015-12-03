@@ -1,5 +1,12 @@
 <%= render 'pages/home' unless user_signed_in? %>
 
+<div class="btn-group">
+  <%= link_to new_board_path, class: 'btn btn-default navbar-btn' do %>
+    <span class="glyphicon glyphicon-plus-sign"></span>
+    New Board
+  <% end %>
+</div>
+
 <div id="pins" class="transitions-enabled">
   <div class="pins-row">
     <% @boards.each do |board| %>
