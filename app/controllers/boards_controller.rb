@@ -1,7 +1,7 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  before_action :correct_user, except: [:index]
+  before_action :correct_user, except: [:index, :new, :create]
 
   def index
     @boards = current_user.boards.paginate(page: params[:page], per_page: 10)
