@@ -5,3 +5,5 @@ $ ->
   $('#pins').imagesLoaded ->
     $('#pins').masonry
       itemSelector: '.box'
+      percentPosition: true
+      isFitWidth: false
