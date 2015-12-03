@@ -1,0 +1,44 @@
+<%= render 'pages/home' unless user_signed_in? %>
+
+<div id="pins" class="transitions-enabled">
+  <div class="pins-row">
+    <% @boards.each do |board| %>
+      <div class="box col-lg-20 col-md-3 col-sm-4 col-xs-6">
+        <div class="box-inner">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4><%= link_to board.name, board %></h4>
+            </div>
+          <% if board.pins.first.present? %>
+            <%= link_to image_tag(board.pins.first.image.url(:medium)), board %>
+          <% else %>
+            <div class="well">
+              <i class="text-muted">This board is empty</i>
+            </div>
+          <% end %>
+            <div class="panel-body">
+              <%= board.description %>
+            </div>
+            <% if board.user == current_user %>
+              <div class="panel-footer">
+                <div class="btn-group btn-group-justified">
+                  <%= link_to edit_board_path(board), class: 'btn btn-default' do %>
+                    <span class="glyphicon glyphicon-edit"></span>
+                    Edit
+                  <% end %>
+                  <%= link_to board, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' do %>
+                    <span class="glyphicon glyphicon-trash"></span>
+                    Destroy
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="text-center">
+   <%= will_paginate @boards, renderer: BootstrapPagination::Rails %>
+</div>
