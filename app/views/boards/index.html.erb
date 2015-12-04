@@ -26,7 +26,11 @@
             </div>
           <% end %>
             <div class="panel-body">
-              <%= board.description %>
+              <p><%= board.description %></p>
+              <br>
+              <strong>Created By:</strong>
+              <br>
+              <%= board.user.name %>
             </div>
             <% if board.user == current_user %>
               <div class="panel-footer">
