@@ -5,11 +5,15 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :boards
+  resources :boards do
+    collection do
+      get 'my_boards'
+    end
+  end
 
   devise_for :users
 
-  root 'pins#index'
+  root 'boards#index'
 
   # Static Pages
   get '/about' => 'pages#about'
