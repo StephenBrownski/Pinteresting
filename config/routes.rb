@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :boards do
     collection do
-      get 'my_boards'
+      get 'manage'
     end
   end
 

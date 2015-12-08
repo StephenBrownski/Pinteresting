@@ -7,7 +7,7 @@ class BoardsController < ApplicationController
     @boards = Board.has_pins.paginate(page: params[:page], per_page: 10)
   end
 
-  def my_boards
+  def manage
     @boards = current_user.boards.paginate(page: params[:page], per_page: 10)
     render 'boards/index'
   end
