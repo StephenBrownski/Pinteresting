@@ -6,8 +6,13 @@
   background: #000;
 }
 
+.pins-row {
+  margin-left: -5px;
+  margin-right: -5px;
+}
+
 #pins {
-  margin: 0;
+  margin: 0 -1px;
 }
 
 .box {
