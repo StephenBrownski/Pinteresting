@@ -7,8 +7,8 @@
   <% end %>
 </div>
 
-<div id="pins" class="transitions-enabled">
-  <div class="pins-row">
+<div class="pins-row">
+  <div id="pins" class="transitions-enabled">
     <% @boards.each do |board| %>
       <div class="box col-lg-20 col-md-3 col-sm-4 col-xs-6">
         <div class="box-inner">
@@ -41,7 +41,7 @@
                   <% end %>
                   <%= link_to board, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' do %>
                     <span class="glyphicon glyphicon-trash"></span>
-                    Destroy
+                    Delete
                   <% end %>
                 </div>
               </div>
