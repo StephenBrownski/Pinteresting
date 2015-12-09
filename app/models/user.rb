@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
   has_many :pins, dependent: :destroy
   has_many :boards, dependent: :destroy
   has_many :likes, dependent: :destroy
+
+  def likes?(post)
+    post.likes.where(user_id: id).any?
+  end
 end
