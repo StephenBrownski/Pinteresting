@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
 
   has_many :pins, dependent: :destroy
   has_many :boards, dependent: :destroy
+  has_many :likes, dependent: :destroy
 end
