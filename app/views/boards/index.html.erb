@@ -32,8 +32,15 @@
               <br>
               <%= board.user.name %>
             </div>
-            <% if board.user == current_user %>
-              <div class="panel-footer">
+            <div class="panel-footer">
+              <% if board.user != current_user && user_signed_in? %>
+
+                <%= button_to likes_path(likeable_type: :board, likeable_id: board.id), method: :post, class: 'btn btn-default', remote: true do %>
+                  <span class="glyphicon glyphicon-heart"></span>
+                  Like
+                <% end %>
+
+              <% elsif board.user == current_user %>
                 <div class="btn-group btn-group-justified">
                   <%= link_to edit_board_path(board), class: 'btn btn-default' do %>
                     <span class="glyphicon glyphicon-edit"></span>
@@ -44,8 +51,8 @@
                     Delete
                   <% end %>
                 </div>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
