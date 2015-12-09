@@ -4,7 +4,7 @@ class BoardsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @boards = Board.has_pins.paginate(page: params[:page], per_page: 10)
+    @boards = Board.visible.has_pins.paginate(page: params[:page], per_page: 10)
   end
 
   def manage
@@ -58,6 +58,6 @@ class BoardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def board_params
-      params.require(:board).permit(:description, :name)
+      params.require(:board).permit(:description, :name, :public)
     end
 end
