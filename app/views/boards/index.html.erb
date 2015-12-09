@@ -34,10 +34,16 @@
             </div>
             <div class="panel-footer">
               <% if board.user != current_user && user_signed_in? %>
-
-                <%= button_to likes_path(likeable_type: :board, likeable_id: board.id), method: :post, class: 'btn btn-default', remote: true do %>
-                  <span class="glyphicon glyphicon-heart"></span>
-                  Like
+                <% if current_user.likes?(board) %>
+                  <%= button_to board.likes.where(likeable_id: board.id).first, method: :delete, class: 'btn btn-default', remote: true do %>
+                    <span class="glyphicon glyphicon-heart text-primary"></span>
+                    Unlike
+                  <% end %>
+                <% else %>
+                  <%= button_to likes_path(likeable_type: 'Board', likeable_id: board.id), method: :post, class: 'btn btn-default', remote: true do %>
+                    <span class="glyphicon glyphicon-heart"></span>
+                    Like
+                  <% end %>
                 <% end %>
 
               <% elsif board.user == current_user %>
