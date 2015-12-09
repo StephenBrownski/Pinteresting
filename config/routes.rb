@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :likes
+
   devise_for :users
 
   root 'boards#index'
